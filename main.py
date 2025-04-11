@@ -7,10 +7,14 @@ from Cargar_datos_csv import cargar_datos_csv
 from MetaIndicador import FrecuenciaConsultas, MargenGasto
 
 def run_app(): 
-    """
-    Función principal que orquesta la ejecución de la aplicación web utilizando Streamlit.
-    Realiza la carga de datos, análisis y generación de visualizaciones.
-    """
+    try:
+        st.title("Sistema de Gestión de Pacientes")
+        # resto del código
+    except Exception as e:
+        st.error(f"❌ Error al ejecutar la app: {e}")
+        import traceback
+        st.text(traceback.format_exc())
+  
     st.title("Sistema de Gestión de Pacientes")
     
     # Cargar datos desde el CSV único
