@@ -3,7 +3,9 @@ import pandas as pd
 import plotly.express as px
 from AnalizadorPacientes import AnalizadorPacientes
 from Cargar_datos_csv import cargar_datos_csv
+from Dinero import Dinero
 from FrecuenciaConsultas import FrecuenciaConsultas
+from IndicadorPaciente import IndicadorPaciente
 from MargenGasto import MargenGasto
 
 
@@ -16,7 +18,7 @@ def run_app():
     st.title("Sistema de Gestión de Pacientes")
     
     # Cargar datos desde el CSV único
-    pacientes = cargar_datos_csv()
+    pacientes, medicos = cargar_datos_csv()
     
     # Crear un DataFrame con información resumida de pacientes
     data_pacientes = []
