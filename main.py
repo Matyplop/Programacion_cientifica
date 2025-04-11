@@ -7,16 +7,26 @@ from AnalizadorPacientes import AnalizadorPacientes
 from Cargar_datos_csv import cargar_datos_csv
 from MetaIndicador import FrecuenciaConsultas, MargenGasto
 from MetaIndicador import MargenGasto, FrecuenciaConsultas
- 
+from ConfigGlobal import ConfigGlobal
 
 def run_app():
      try:
          st.title("Sistema de Gestión de Pacientes")
+
+         logger = ConfigGlobal()
+         log = logger.log
          
          
  
          pacientes, medicos = cargar_datos_csv()
+
+         log(f" Archivo cargado correctamente")
+         log(f" Total de pacientes únicos: {len(pacientes)}")
+         log(f" Total de médicos únicos: {len(medicos)}")
          
+         st.subheader("🧾 Registro de eventos (Logs)")
+         for evento in logger.eventos():
+            st.text(evento)
  
         
          data_pacientes = []

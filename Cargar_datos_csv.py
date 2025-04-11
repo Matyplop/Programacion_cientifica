@@ -9,6 +9,7 @@ def cargar_datos_csv():
     Lee el archivo 'pacientes_medicos.csv' y procesa los datos para generar listas de
     objetos 'Medico', 'Paciente' y las correspondientes 'Consulta'.
     """
+    
    
     df = pd.read_csv('pacientes_medicos.csv')
     df.columns = [col.strip().lower() for col in df.columns]
