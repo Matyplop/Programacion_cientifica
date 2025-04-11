@@ -16,7 +16,7 @@ def run_app():
     st.title("Sistema de Gestión de Pacientes")
     
     # Cargar datos desde el CSV único
-    pacientes, medicos = cargar_datos_csv()
+    pacientes = cargar_datos_csv()
     
     # Crear un DataFrame con información resumida de pacientes
     data_pacientes = []
