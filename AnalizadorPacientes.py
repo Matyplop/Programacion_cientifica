@@ -18,3 +18,14 @@ class AnalizadorPacientes:
     @staticmethod
     def gasto_total_del_sistema(pacientes):
         return reduce(lambda acc, p: acc + p.total_gastado(), pacientes, 0)
+
+    @staticmethod
+    def ingreso_enfermedades(pacientes):
+        def acum_ingresos(ingresos, consulta):
+            if consulta.diagnostico:
+                ingresos[consulta.diagnostico] += consulta.costo.valor()
+            return ingresos
+
+        todas_consultas = [c for p in pacientes for c in p.consultas()]
+        ingresos_por_enf = reduce(acum_ingresos, todas_consultas, Counter())
+        return ingresos_por_enf.most_common()

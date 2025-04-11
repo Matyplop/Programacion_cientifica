@@ -55,6 +55,16 @@ def run_app():
          fig1 = px.bar(df_top_enf, x="Enfermedad", y="Casos",
                        title="Top Enfermedades Más Comunes", text="Casos")
          st.plotly_chart(fig1)
+
+         # Ingreso por  enfermedad
+         st.subheader("🦠 Ingreso por enfermedad")
+         ingreso_enf = AnalizadorPacientes.ingreso_enfermedades(pacientes)
+         df_ingreso_enf = pd.DataFrame(ingreso_enf, columns=["Enfermedad", "Ingreso Total"])
+         st.dataframe(df_ingreso_enf)
+         figIngreso = px.bar(df_ingreso_enf, x="Enfermedad", y="Ingreso Total",
+                       title="💰 Ingreso Total por Enfermedad", text="Ingreso Total",
+                       labels={"Ingreso Total": "Ingreso ($)"})
+         st.plotly_chart(figIngreso)
  
          # Indicadores personalizados
          st.subheader("📊 Indicadores personalizados")
