@@ -21,8 +21,6 @@ def run_app():
          pacientes, medicos = cargar_datos_csv()
 
          log(f" Archivo cargado correctamente")
-         log(f" Total de pacientes únicos: {len(pacientes)}")
-         log(f" Total de médicos únicos: {len(medicos)}")
          
          st.subheader("🧾 Registro de eventos (Logs)")
          for evento in logger.eventos():
