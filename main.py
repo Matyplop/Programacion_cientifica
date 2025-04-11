@@ -7,8 +7,8 @@ from Dinero import Dinero
 from FrecuenciaConsultas import FrecuenciaConsultas
 from IndicadorPaciente import IndicadorPaciente
 from MargenGasto import MargenGasto
-
-
+from MetaIndicador import MetaIndicador
+from Paciente import Paciente
 
 def run_app(): 
     """
@@ -22,6 +22,12 @@ def run_app():
     
     # Crear un DataFrame con información resumida de pacientes
     data_pacientes = []
+    for i, p in enumerate(pacientes):
+        st.write(f"Paciente {i}: {p}, tipo: {type(p)}")
+        if not hasattr(p, 'nombre'):
+            st.error(f"❌ El objeto en la posición {i} no tiene atributo 'nombre'")
+            break
+    
     for p in pacientes:
         data_pacientes.append({
             "Nombre": p.nombre,
