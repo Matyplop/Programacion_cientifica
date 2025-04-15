@@ -21,6 +21,7 @@ class ConfigGlobal:
         """
         Registra un evento en el sistema con la fecha actual y un nivel específico.
         """
+        self._eventos = []  # Limpiar el historial de eventos
         evento = f"{datetime.now()} [{nivel}] {mensaje}"
         self._eventos.append(evento)
         print(evento)
